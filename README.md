@@ -17,4 +17,8 @@ To run the notebooks with regular CERN resources:
 
 ## Table of content
 
+1. [Data exploration notebook](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/master/Data-Inspection.ipynb) - here we will study the signature of the searched process, and we will learn about event and object selections.
+
+2. ... 
+
 TO BE PREPARED
