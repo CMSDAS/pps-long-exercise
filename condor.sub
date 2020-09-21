@@ -1,0 +1,44 @@
+executable = sub_condor.csh
+
+output     = output/output_$(ProcId).out
+error      = output/output_$(ProcId).err
+log        = output/output_$(ProcId).log
+
+getenv     = True
+
+#environment = "X509_USER_PROXY=$ENV(HOME)/x509up_u61469"
+
+requirements = (OpSysAndVer =?= "CentOS7")
+
+#request_memory = 16000
+#request_memory = 32000
+request_memory = 48000
+
+#+JobFlavour = "longlunch"
+#+JobFlavour = "workday"
++JobFlavour = "tomorrow"
+
+should_transfer_files = IF_NEEDED
+when_to_transfer_output = ON_EXIT
+transfer_output_files = ""
+
+queue arguments from (
+    #/eos/cms/store/group/phys_pps/dilepton/DoubleMuon/UL-MiniAOD-2017/DoubleMuon_UL2017B.root UL2017B-Excl --apply_exclusive
+    #/eos/cms/store/group/phys_pps/dilepton/DoubleMuon/UL-MiniAOD-2017/DoubleMuon_UL2017C1.root UL2017C1-Excl --apply_exclusive
+    #/eos/cms/store/group/phys_pps/dilepton/DoubleMuon/UL-MiniAOD-2017/DoubleMuon_UL2017B.root UL2017B-PreSel
+    #/eos/cms/store/group/phys_pps/dilepton/DoubleMuon/UL-MiniAOD-2017/DoubleMuon_UL2017B.root UL2017B-PreSel-Rnd-Res20 --random_protons --resample_factor=20 --read_size=50MB
+    #/eos/cms/store/group/phys_pps/dilepton/DoubleMuon/UL-MiniAOD-2017/DoubleMuon_UL2017C1.root UL2017C1-PreSel
+    #/eos/cms/store/group/phys_pps/dilepton/DoubleMuon/UL-MiniAOD-2017/DoubleMuon_UL2017C1.root UL2017C1-PreSel-Rnd-Res20 --random_protons --resample_factor=20 --read_size=50MB
+    #/eos/cms/store/group/phys_pps/dilepton/DoubleMuon/UL-MiniAOD-2017/DoubleMuon_UL2017E.root UL2017E-PreSel
+    /eos/cms/store/group/phys_pps/dilepton/DoubleMuon/UL-MiniAOD-2017/DoubleMuon_UL2017E.root UL2017E-PreSel-Rnd-Res20 --random_protons --resample_factor=20 --read_size=50MB
+    #/eos/cms/store/group/phys_pps/dilepton/DoubleMuon/UL-MiniAOD-2017/DoubleMuon_UL2017F1.root UL2017F1-PreSel
+    #/eos/cms/store/group/phys_pps/dilepton/DoubleMuon/UL-MiniAOD-2017/DoubleMuon_UL2017F1.root UL2017F1-PreSel-Rnd-Res20 --random_protons --resample_factor=20 --read_size=50MB
+    #/eos/cms/store/group/phys_pps/dilepton/DoubleMuon/UL-MiniAOD-2017/DoubleMuon_UL2017C2.root UL2017C2-PreSel
+    #/eos/cms/store/group/phys_pps/dilepton/DoubleMuon/UL-MiniAOD-2017/DoubleMuon_UL2017C2.root UL2017C2-PreSel-Rnd-Res20 --random_protons --resample_factor=20
+    #/eos/cms/store/group/phys_pps/dilepton/DoubleMuon/UL-MiniAOD-2017/DoubleMuon_UL2017D.root UL2017D-PreSel
+    #/eos/cms/store/group/phys_pps/dilepton/DoubleMuon/UL-MiniAOD-2017/DoubleMuon_UL2017D.root UL2017D-PreSel-Rnd-Res20 --random_protons --resample_factor=20
+    #/eos/cms/store/group/phys_pps/dilepton/DoubleMuon/UL-MiniAOD-2017/DoubleMuon_UL2017F2.root UL2017F2-PreSel
+    #/eos/cms/store/group/phys_pps/dilepton/DoubleMuon/UL-MiniAOD-2017/DoubleMuon_UL2017F2.root UL2017F2-PreSel-Rnd-Res20 --random_protons --resample_factor=20
+    #/eos/cms/store/group/phys_pps/dilepton/DoubleMuon/UL-MiniAOD-2017/DoubleMuon_UL2017F3.root UL2017F3-PreSel
+    #/eos/cms/store/group/phys_pps/dilepton/DoubleMuon/UL-MiniAOD-2017/DoubleMuon_UL2017F3.root UL2017F3-PreSel-Rnd-Res20 --random_protons --resample_factor=20
+)
