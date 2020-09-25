@@ -19,6 +19,8 @@ To run the notebooks with regular CERN resources:
 
 1. [Data exploration notebook](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/master/Data-Inspection.ipynb) - here we will study the signature of the searched process, and we will learn about event and object selections.
 
-2. ... 
+1. [Optimization notebook](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/master/Event-selection-optimization.ipynb) - here we will optimize event selection using a simple figure of merit to decide which cut is optimal
 
-TO BE PREPARED
+2. [Clasification notebook](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/master/Classification-Training.ipynb) - here we will prepare a simple setup to train a multivariate discriminator to separate the signal from the background.
+
+IN PREPARATION...
