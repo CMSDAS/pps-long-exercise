@@ -25,6 +25,6 @@ To run the notebooks with regular CERN resources:
 
 3. [Clasification notebook](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/master/Classification-Training.ipynb) - here we will prepare a simple setup to train a multivariate discriminator to separate the signal from the background.
 
+4. [Background estimation notebook](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/master/Background-Estimation.ipynb) - here we will use the ABCD method to estimate the background rates in the signal region. 
 
-IN PREPARATION...
 
