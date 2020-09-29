@@ -23,8 +23,8 @@ To run the notebooks with regular CERN resources:
 
 3. [Clasification notebook](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/master/Classification-Training.ipynb) - here we will prepare a simple setup to train a multivariate discriminator to separate the signal from the background.
 
-4a. [Background estimation + statistical analysis notebook (CBA)](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/master/Background-Estimation.ipynb) - here we will use the ABCD method to estimate the background rates in the signal region and extract sensitivity using the Cut-and-Count approach. 
+4. [Background estimation + statistical analysis notebook (CBA)](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/master/Background-Estimation.ipynb) - here we will use the ABCD method to estimate the background rates in the signal region and extract sensitivity using the Cut-and-Count approach. 
 
-4b. [Background estimation + statistical analysis notebook (MVA)](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/master/Background-Estimation_shape.ipynb) - here we will use the ABCD method to estimate the background rates in the signal region and use the BDT output from [Clasification notebook](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/master/Classification-Training.ipynb) in shape analysis. 
+5. [Background estimation + statistical analysis notebook (MVA)](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/master/Background-Estimation_shape.ipynb) - here we will use the ABCD method to estimate the background rates in the signal region and use the BDT output from [Clasification notebook](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/master/Classification-Training.ipynb) in shape analysis. 
 
 
