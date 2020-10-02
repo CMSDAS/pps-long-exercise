@@ -44,13 +44,13 @@ def GetData(flist,chunk_size=None):
                 df[-1]=df[-1][['Run', 'LumiSection', 'EventNum', 'CrossingAngle', 
                                'MultiRP', 'Arm', 'RPId1',
                                'Xi', 'T', 'XiMuMuPlus', 'XiMuMuMinus',
-                               'Lep0Pt', 'Lep1Pt', 'InvMass', 'ExtraPfCands_v1', 'Acopl'] ].astype( { "Run": "int64",
+                               'Lep0Pt', 'Lep1Pt', 'InvMass', 'ExtraPfCands_v2', 'Acopl'] ].astype( { "Run": "int64",
                                                                                                      "LumiSection": "int64",
                                                                                                      "EventNum": "int64",
                                                                                                      "MultiRP": "int32",
                                                                                                      "Arm": "int32",
                                                                                                      "RPId1": "int32",
-                                                                                                     "ExtraPfCands_v1": "int32" } )
+                                                                                                     "ExtraPfCands_v2": "int32" } )
               
             #read the selection counters
             selections = list( dset_selections )
