@@ -52,7 +52,7 @@ np.random.seed( 42 )
 
 dset_chunk_size = 50000
 
-columns = ( "Run", "CrossingAngle", "InvMass", "Acopl" , "ExtraPfCands", "ExtraPfCands_v1")
+columns = ( "Run", "CrossingAngle", "InvMass", "Acopl" , "EventNum", "ExtraPfCands", "ExtraPfCands_v1", "ExtraPfCands_v2", "ExtraPfCands_v3")
 
 #columns = ( "Run", "LumiSection", "rho", "EventNum", "CrossingAngle",
 #            "MultiRP", "Arm", #"RPId1", "RPId2", "TrackX1", "TrackY1", "TrackX2", "TrackY2",
@@ -94,7 +94,7 @@ with h5py.File( 'output-' + label_ + '.h5', 'w') as f:
 
         tree_ = root_["tree"]
  
-        keys = ["Run", "CrossingAngle", "InvMass", "Acopl", "ExtraPfCands", "ExtraPfCands_v1"]
+        keys = ["Run", "CrossingAngle", "EventNum", "InvMass", "Acopl", "ExtraPfCands", "ExtraPfCands_v1", "ExtraPfCands_v2", "ExtraPfCands_v3"]
         print ( keys )
         
         for events_ in tree_.iterate( keys , library="ak", how="zip", step_size=read_size_, entry_start=firstEvent_, entry_stop=entrystop_ ):

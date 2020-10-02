@@ -58,9 +58,9 @@ dset_chunk_size = 50000
 
 columns = ( "Run", "LumiSection", "EventNum", "CrossingAngle",
             "MultiRP", "Arm", "RPId1",
-            "Xi", "T", 
+            "Xi", "T", "ThX", "ThY",
             "Lep0Pt", "Lep0Eta", "Lep0Phi", "Lep1Pt", "Lep1Eta", "Lep1Phi",
-            "InvMass", "ExtraPfCands", "ExtraPfCands_v1", "Acopl", "XiMuMuPlus", "XiMuMuMinus" )
+            "InvMass", "ExtraPfCands", "ExtraPfCands_v1", "ExtraPfCands_v2", "ExtraPfCands_v3", "Acopl", "XiMuMuPlus", "XiMuMuMinus" )
 protons_keys = {}
 for col_ in columns:
     protons_keys[ col_ ] = col_
@@ -110,8 +110,8 @@ with h5py.File( 'output-' + label_ + '.h5', 'w') as f:
         tree_ = root_["tree"]
  
         keys = ["Run", "LumiSection", "EventNum", "CrossingAngle","hasSLT", "InvMass",
-            "nLepCand", "LepCand_pt", "LepCand_eta", "LepCand_phi", "LepCand_e", "LepCand_charge", 
-            "weight","ExtraPfCands", "ExtraPfCands_v1"]
+            "nLepCand", "LepCand_pt", "LepCand_eta", "LepCand_phi", "LepCand_e", "LepCand_charge", "LepCand_id",
+            "weight", "ExtraPfCands", "ExtraPfCands_v1", "ExtraPfCands_v2", "ExtraPfCands_v3"]
         keys.append( "nRecoProtCand" )
         keys.extend( tree_.keys( filter_name="ProtCand*" ) )  
         print ( keys )

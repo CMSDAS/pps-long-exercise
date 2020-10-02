@@ -56,8 +56,9 @@ def select_events( events, apply_exclusive=True ):
     
     msk_muon = ( np.array( events_2muons.LepCand.pt[:,0] >= 50. ) & np.array( events_2muons.LepCand.pt[:,1] >= 50. ) &
 #                 np.array( events_2muons.LepCand.istight[:,0] == 1 ) & np.array( events_2muons.LepCand.istight[:,1] == 1 ) &
-                 np.array( ( events_2muons.LepCand.charge[:,0] * events_2muons.LepCand.charge[:,1] ) == -1 ) )
-    selections_.append( "Muon" )
+                 np.array( ( events_2muons.LepCand.charge[:,0] * events_2muons.LepCand.charge[:,1] ) == -1 ) &
+                 np.array( events_2muons.LepCand.id[:,0] == events_2muons.LepCand.id[:,1] )  )
+    selections_.append( "Lepton" )
     counts_.append( np.sum( msk_muon ) )
     
     msk_vtx = msk_muon #& ( 
@@ -72,7 +73,7 @@ def select_events( events, apply_exclusive=True ):
     if apply_exclusive:
         msk_excl = msk_vtx & ( np.array( events_2muons["InvMass"] >= 110. ) & 
                                np.array( events_2muons["Acopl"] <= 0.009 ) & 
-                               np.array( events_2muons["ExtraPfCands"] <= 10 ) )
+                               np.array( events_2muons["ExtraPfCands_v2"] <= 10 ) )
         selections_.append( "Exclusive" )
         counts_.append( np.sum( msk_excl ) )
 
@@ -110,6 +111,8 @@ def select_protons(events, branchName="ProtCand"):
     protons_["InvMass"] = events[ "InvMass" ]
     protons_["ExtraPfCands"] = events[ "ExtraPfCands" ]
     protons_["ExtraPfCands_v1"] = events[ "ExtraPfCands_v1" ]
+    protons_["ExtraPfCands_v2"] = events[ "ExtraPfCands_v2" ]
+    protons_["ExtraPfCands_v3"] = events[ "ExtraPfCands_v3" ]
     protons_["Acopl"] = events[ "Acopl" ]
 
     protons_["XiMuMuPlus"] = events[ "XiMuMuPlus" ]
