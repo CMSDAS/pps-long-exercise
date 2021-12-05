@@ -1,4 +1,4 @@
-# Physics with tagged protons: exclusive di-lepton production for the 2020 CMSDAS
+# Physics with tagged protons: exclusive di-lepton production for the 2022 CMSDAS@LPC
 
 General information on CMSDAS 2020:
 * [CMSDAS2022 main page](https://indico.cern.ch/event/1088671/)
