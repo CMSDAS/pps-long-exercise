@@ -43,7 +43,8 @@ Go back to your Jupyter browser (Home) page and open/run(double-click) the newly
 This will checkout the code and setup your environment for future use. After running setup.ipynb, choose "File... Close and Halt". 
 
 ***Remember*** each time you open the notebook, you should change the Kernel to `das-pps`.
-Alternative way is using SWAN(https://swan.cern.ch), click [![SWAN](https://swanserver.web.cern.ch/swanserver/images/badge_swan_white_150.png)](https://cern.ch/swanserver/cgi-bin/go/?projurl=https://github.com/CMSDAS/pps-long-exercise.git) to open the repository on SWAN 
+
+Alternative way is using [SWAN](https://swan.cern.ch), click [![SWAN](https://swanserver.web.cern.ch/swanserver/images/badge_swan_white_150.png)](https://cern.ch/swanserver/cgi-bin/go/?projurl=https://github.com/CMSDAS/pps-long-exercise.git) to open the repository on SWAN 
 ## Table of content
 
 1. [Optimization notebook](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/master/Event-selection-optimization.ipynb) - here we will optimize event selection using a simple figure of merit to decide which cut is optimal
