@@ -1,6 +1,6 @@
 # Physics with tagged protons: exclusive di-lepton production for the 2022 CMSDAS@LPC
 
-General information on CMSDAS 2020:
+General information on CMSDAS 2022:
 * [CMSDAS2022 main page](https://indico.cern.ch/event/1088671/)
 * [All long exercises](https://twiki.cern.ch/twiki/bin/view/CMS/CMSDASAtLPC2022#LongExercises2022LPC)
 * [Exercise Twiki](https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideCMSDataAnalysisSchoolLPC2022TaggedProtonsLongExercise)
