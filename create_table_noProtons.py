@@ -1,5 +1,5 @@
-import uproot4
-import awkward1 as ak
+import uproot as uproot4
+import awkward as ak
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -52,21 +52,22 @@ np.random.seed( 42 )
 
 dset_chunk_size = 50000
 
-columns = ( "Run", "CrossingAngle", "InvMass", "Acopl" , "EventNum", "ExtraPfCands", "ExtraPfCands_v1", "ExtraPfCands_v2", "ExtraPfCands_v3")
+columns = ( "Run", "InvMass", "Acopl" , "EventNum", "PV_ndof")
 
-#columns = ( "Run", "LumiSection", "rho", "EventNum", "CrossingAngle",
+#columns = ( "Run", "rho", "EventNum", 
 #            "MultiRP", "Arm", #"RPId1", "RPId2", "TrackX1", "TrackY1", "TrackX2", "TrackY2",
 #            "Xi", "T", #"ThX", "ThY", "Time",
 #            #"TrackThX_SingleRP", "TrackThY_SingleRP",
             #"Track1ThX_MultiRP", "Track1ThY_MultiRP", "Track2ThX_MultiRP", "Track2ThY_MultiRP",
 #            "Muon0Pt", "Muon0Eta", "Muon0Phi", "Muon0VtxZ", "Muon1Pt", "Muon1Eta", "Muon1Phi", "Muon1VtxZ",
-#            "PrimVertexZ", "InvMass", "ExtraPfCands", "Acopl", "XiMuMuPlus", "XiMuMuMinus" )
+#            "PrimVertexZ", "InvMass", "PV_ndof", "Acopl", "XiMuMuPlus", "XiMuMuMinus" )
 			
 
 protons_keys = {}
 for col_ in columns:
     protons_keys[ col_ ] = col_
-
+protons_keys["Run"]="run"
+protons_keys["EventNum"]="event"
 
 counts_label_protons_ = "Protons"
 
@@ -90,11 +91,11 @@ with h5py.File( 'output-' + label_ + '.h5', 'w') as f:
         print ( file_ ) 
         root_ = uproot4.open( file_ )
 
-        print ( "Number of events in tree: {}".format( np.array( root_["tree/nLepCand"] ).size ) )
+        print ( "Number of events in tree: {}".format( np.array( root_["Events/nLepCand"] ).size ) )
 
-        tree_ = root_["tree"]
+        tree_ = root_["Events"]
  
-        keys = ["Run", "CrossingAngle", "EventNum", "InvMass", "Acopl", "ExtraPfCands", "ExtraPfCands_v1", "ExtraPfCands_v2", "ExtraPfCands_v3"]
+        keys = ["run", "event", "InvMass", "Acopl", "PV_ndof"]
         print ( keys )
         
         for events_ in tree_.iterate( keys , library="ak", how="zip", step_size=read_size_, entry_start=firstEvent_, entry_stop=entrystop_ ):

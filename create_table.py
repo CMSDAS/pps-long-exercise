@@ -56,11 +56,11 @@ np.random.seed( 42 )
 
 dset_chunk_size = 50000
 
-columns = ( "run", "event", 
+columns = ( "Run", "EventNum", 
             "MultiRP", "Arm", "RPId1",
             "Xi", "T", "ThX", "ThY",
             "Lep0Pt", "Lep0Eta", "Lep0Phi", "Lep1Pt", "Lep1Eta", "Lep1Phi",
-            "InvMass", "ExtraPfCands", "ExtraPfCands_v1", "ExtraPfCands_v2", "ExtraPfCands_v3", "Acopl", "XiMuMuPlus", "XiMuMuMinus" )
+            "InvMass", "PV_ndof", "Acopl", "XiMuMuPlus", "XiMuMuMinus" )
 protons_keys = {}
 for col_ in columns:
     protons_keys[ col_ ] = col_
@@ -164,6 +164,7 @@ with h5py.File( 'output-' + label_ + '.h5', 'w') as f:
             else:    
                 counts[ selections == counts_label_protons_ ] += counts_protons_ 
     
+            print ( "counts_protons_ = ",counts_protons_ )
             print ( selections )
             print ( counts )
     
