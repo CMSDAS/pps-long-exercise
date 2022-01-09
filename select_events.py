@@ -1,5 +1,5 @@
-import uproot4
-import awkward1 as ak
+import uproot as uproot4
+import awkward as ak
 import numpy as np
 import pandas as pd
 import numba as nb
@@ -13,7 +13,7 @@ def select_events( events, apply_exclusive=True ):
     selections_.append( "All" )
     counts_.append( len( events ) )
     
-    msk_2muons = ( events.nLepCand >= 2 ) & events.hasSLT
+    msk_2muons = ( events.nLepCand >= 2 )
     events_2muons = events[msk_2muons]    
 
     dphi = events_2muons.LepCand.phi[:,0] - events_2muons.LepCand.phi[:,1]
@@ -73,7 +73,7 @@ def select_events( events, apply_exclusive=True ):
     if apply_exclusive:
         msk_excl = msk_vtx & ( np.array( events_2muons["InvMass"] >= 110. ) & 
                                np.array( events_2muons["Acopl"] <= 0.009 ) & 
-                               np.array( events_2muons["ExtraPfCands_v2"] <= 10 ) )
+                               np.array( events_2muons["PV_ndof"] <= 10 ) )
         selections_.append( "Exclusive" )
         counts_.append( np.sum( msk_excl ) )
 
@@ -90,12 +90,8 @@ def select_protons(events, branchName="ProtCand"):
 
     protons_ = events[ branchName ]
 
-    protons_["Run"] = events[ "Run" ]
-    protons_["LumiSection"] = events[ "LumiSection" ]
-#    protons_["BX"] = events[ "BX" ]
-    protons_["EventNum"] = events[ "EventNum" ]
-    
-    protons_["CrossingAngle"] = events[ "CrossingAngle" ]
+    protons_["Run"] = events[ "run" ]
+    protons_["EventNum"] = events[ "event" ]
     
     protons_["Lep0Pt"] = events.LepCand.pt[:,0]
     protons_["Lep0Eta"] = events.LepCand.eta[:,0]
@@ -109,10 +105,7 @@ def select_protons(events, branchName="ProtCand"):
 #    protons_["PrimVertexZ"] = events.PrimVertexCand.z[:,0]
     
     protons_["InvMass"] = events[ "InvMass" ]
-    protons_["ExtraPfCands"] = events[ "ExtraPfCands" ]
-    protons_["ExtraPfCands_v1"] = events[ "ExtraPfCands_v1" ]
-    protons_["ExtraPfCands_v2"] = events[ "ExtraPfCands_v2" ]
-    protons_["ExtraPfCands_v3"] = events[ "ExtraPfCands_v3" ]
+    protons_["PV_ndof"] = events[ "PV_ndof" ]
     protons_["Acopl"] = events[ "Acopl" ]
 
     protons_["XiMuMuPlus"] = events[ "XiMuMuPlus" ]

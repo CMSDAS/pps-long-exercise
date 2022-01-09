@@ -1,5 +1,5 @@
-import uproot4
-import awkward1 as ak
+import uproot as uproot4
+import awkward as ak
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -56,7 +56,7 @@ np.random.seed( 42 )
 
 dset_chunk_size = 50000
 
-columns = ( "Run", "LumiSection", "EventNum", "CrossingAngle",
+columns = ( "run", "event", 
             "MultiRP", "Arm", "RPId1",
             "Xi", "T", "ThX", "ThY",
             "Lep0Pt", "Lep0Eta", "Lep0Phi", "Lep1Pt", "Lep1Eta", "Lep1Phi",
@@ -105,13 +105,13 @@ with h5py.File( 'output-' + label_ + '.h5', 'w') as f:
         print ( file_ ) 
         root_ = uproot4.open( file_ )
 
-        print ( "Number of events in tree: {}".format( np.array( root_["tree/nLepCand"] ).size ) )
+        print ( "Number of events in tree: {}".format( np.array( root_["Events/nLepCand"] ).size ) )
 
-        tree_ = root_["tree"]
+        tree_ = root_["Events"]
  
-        keys = ["Run", "LumiSection", "EventNum", "CrossingAngle","hasSLT", "InvMass",
-            "nLepCand", "LepCand_pt", "LepCand_eta", "LepCand_phi", "LepCand_e", "LepCand_charge", "LepCand_id",
-            "weight", "ExtraPfCands", "ExtraPfCands_v1", "ExtraPfCands_v2", "ExtraPfCands_v3"]
+        keys = ["run", "event", "InvMass",
+            "nLepCand", "LepCand_pt", "LepCand_eta", "LepCand_phi", "LepCand_dz", "LepCand_charge", "LepCand_id",
+            "PV_ndof", "nJets", "Yll", "pTll"]
         keys.append( "nRecoProtCand" )
         keys.extend( tree_.keys( filter_name="ProtCand*" ) )  
         print ( keys )
