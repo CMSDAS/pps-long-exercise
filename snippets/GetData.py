@@ -3,7 +3,7 @@ import h5py
 import numpy as np
 import mplhep
 
-def GetData(flist,chunk_size=None):
+def GetData(flist,chunk_size=None,is2018=False):
     
     """ 
     opens a summary file or list of summary files and convert them to a pandas dataframe 
@@ -41,16 +41,30 @@ def GetData(flist,chunk_size=None):
 
                 df.append( pd.DataFrame( dset[start[idx]:stop[idx]], 
                                          columns=columns_str ) )
-                df[-1]=df[-1][['Run', 'LumiSection', 'EventNum', 'CrossingAngle', 
-                               'MultiRP', 'Arm', 'RPId1',
-                               'Xi', 'T', 'XiMuMuPlus', 'XiMuMuMinus',
-                               'Lep0Pt', 'Lep1Pt', 'InvMass', 'ExtraPfCands_v2', 'Acopl'] ].astype( { "Run": "int64",
-                                                                                                     "LumiSection": "int64",
-                                                                                                     "EventNum": "int64",
-                                                                                                     "MultiRP": "int32",
-                                                                                                     "Arm": "int32",
-                                                                                                     "RPId1": "int32",
-                                                                                                     "ExtraPfCands_v2": "int32" } )
+               
+                if is2018:
+                    cols=['Run', 'EventNum', 'MultiRP', 'Arm', 'RPId1', 'Xi', 'T', 'ThX', 'ThY',
+                          'Lep0Pt', 'Lep0Eta', 'Lep0Phi', 'Lep1Pt', 'Lep1Eta', 'Lep1Phi',
+                          'InvMass', 'PV_ndof', 'Acopl', 'XiMuMuPlus', 'XiMuMuMinus']
+                    coltypes={ "Run": "int64",
+                               "EventNum": "int64",
+                               "MultiRP": "int32",
+                               "Arm": "int32",
+                               "RPId1": "int32",
+                               "PV_ndof": "int32" }
+                else:
+                    cols=['Run', 'LumiSection', 'EventNum', 'CrossingAngle', 
+                          'MultiRP', 'Arm', 'RPId1',
+                          'Xi', 'T', 'XiMuMuPlus', 'XiMuMuMinus',
+                          'Lep0Pt', 'Lep1Pt', 'InvMass', 'ExtraPfCands_v2', 'Acopl']
+                    coltypes={ "Run": "int64",
+                               "LumiSection": "int64",
+                               "EventNum": "int64",
+                               "MultiRP": "int32",
+                               "Arm": "int32",
+                               "RPId1": "int32",
+                               "ExtraPfCands_v2": "int32" }
+                df[-1]=df[-1][cols].astype(coltypes)
               
             #read the selection counters
             selections = list( dset_selections )
