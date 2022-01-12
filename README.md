@@ -47,14 +47,14 @@ This will checkout the code and setup your environment for future use. After run
 Alternative way is using [SWAN](https://swan.cern.ch), click [![SWAN](https://swanserver.web.cern.ch/swanserver/images/badge_swan_white_150.png)](https://cern.ch/swanserver/cgi-bin/go/?projurl=https://github.com/CMSDAS/pps-long-exercise.git) to open the repository on SWAN 
 ## Table of content
 
-1. [Optimization notebook](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/master/Event-selection-optimization.ipynb) - here we will optimize event selection using a simple figure of merit to decide which cut is optimal
+1. [Optimization notebook](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/DAS2022/Event-selection-optimization.ipynb) - here we will optimize event selection using a simple figure of merit to decide which cut is optimal
 
-2. [Proton recontsruction](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/master/Proton-Reconstruction.ipynb) - In this notebook, we will select events with protons, tagged by the forward proton spectrometer (PPS), and practice how to correlate the information obtained by PPS with the event measured in the central detector.
+2. [Proton recontsruction](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/DAS2022/Proton-Reconstruction.ipynb) - In this notebook, we will select events with protons, tagged by the forward proton spectrometer (PPS), and practice how to correlate the information obtained by PPS with the event measured in the central detector.
 
-3. [Clasification notebook](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/master/Classification-Training.ipynb) - here we will prepare a simple setup to train a multivariate discriminator to separate the signal from the background.
+3. [Clasification notebook](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/DAS2022/Classification-Training.ipynb) - here we will prepare a simple setup to train a multivariate discriminator to separate the signal from the background.
 
-4. [Background estimation + statistical analysis notebook (CBA)](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/master/Background-Estimation.ipynb) - here we will use the ABCD method to estimate the background rates in the signal region and extract sensitivity using the Cut-and-Count approach. 
+4. [Background estimation + statistical analysis notebook (CBA)](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/DAS2022/Background-Estimation.ipynb) - here we will use the ABCD method to estimate the background rates in the signal region and extract sensitivity using the Cut-and-Count approach. 
 
-5. [Background estimation + statistical analysis notebook (MVA)](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/master/Background-Estimation_shape.ipynb) - here we will use the ABCD method to estimate the background rates in the signal region and use the BDT output from [Clasification notebook](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/master/Classification-Training.ipynb) in shape analysis. 
+5. [Background estimation + statistical analysis notebook (MVA)](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/DAS2022/Background-Estimation_shape.ipynb) - here we will use the ABCD method to estimate the background rates in the signal region and use the BDT output from [Clasification notebook](https://nbviewer.jupyter.org/github/cmsdas/pps-long-exercise/blob/DAS2022/Classification-Training.ipynb) in shape analysis. 
 
 
